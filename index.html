@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            width: 100%;
+            height: 100vh;
+            padding-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: palegoldenrod;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 50px;
+            font-weight: 700px;
+        }
+
+        .container {
+            width: 1000px;
+            height: 800px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .box {
+            width: 900px;
+            height: 300px;
+            background-color: black;
+            color: whitesmoke;
+            border-radius: 10px;
+            text-align: center;
+            align-content: center;
+            font-size: 30px;
+            box-shadow: 3px 4px 5px black;
+        }
+
+        .btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-child {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            align-content: center;
+            border-radius: 10px;
+            background-color: black;
+            color: whitesmoke;
+            box-shadow: 3px 4px 5px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div class="container">
+        <div class="box">
+            <div id="box-text">
+                <h3>Welcome</h3>
+            </div>
+        </div>
+
+        <div class="btn">
+            <div onclick="BMI()" class="btn-child">BMI</div>
+            <div onclick="INTEREST()" class="btn-child">INTEREST</div>
+            <div onclick="CALORIES()" class="btn-child">CALORIES</div>
+        </div>
+    </div>
+
+    <script>
+        var box = document.getElementById("box-text");
+
+        function BMI() {
+            var weight = Number(prompt("Ener your weight"));
+            var height = Number(prompt("Ener your height"));
+
+            height = height * height
+            var BMI = weight / height
+
+            box.innerHTML = `<h1>Your BMI is ${BMI}</h1>`
+        }
+
+        function INTEREST() {
+            var principalamt = Number(prompt("Enter your principal amount"));
+            var time = Number(prompt("Enter your principal time"));
+            var ROT = Number(prompt("Enter your principal ROT"));
+
+            var SI = (principalamt * time * ROT / 100);
+            var total = principalamt + SI
+
+            box.innerHTML = `<h1>Your SI is ${SI} and total is ${total}</h1>`
+        }
+
+        function CALORIES() {
+            var gender = prompt("Enter your gender");
+            var weight = Number(prompt("Ener your weight"));
+            var height = Number(prompt("Ener your height"));
+            var age = Number(prompt("Enter your age"));
+            var malecalories = 66.5 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
+            var femalecalories=655.1+(9.563*weight)+(1.850*height)-(4.676*age);
+
+
+            if (gender == "male" || gender == "Male") {
+                box.innerHTML = `<h1>Your calories ${malecalories}</h1>`
+            }
+            else if (gender == "female" || gender == "Female") {
+                box.innerHTML = `<h1>Your calories ${femalecalories}</h1>`
+            }
+        }
+    </script>
+</body>
+
+</html>
